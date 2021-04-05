@@ -20,7 +20,7 @@ The prediction result is saved as ```prediction_graph.png```,
 ![](prediction_graph.png)
 
 ## Min-Max Modular Network
-This is an implementation of the Min-Max Modular Network proposed by Prof. Baoliang Lu.
+This is an implementation of the Min-Max Modular Network proposed by Prof. Baoliang Lu. [Task decomposition and module combination based on class relations: A modular neural network for pattern classification](http://bcmi.sjtu.edu.cn/~lubaoliang/papers/SCI/2002_11.pdf)
 
 I used SVM as submodule to tackle the decomposed problem.
 
