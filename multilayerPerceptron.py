@@ -116,7 +116,8 @@ def plotPrediction(model, txt_file):
 txt_file = r'./two-spiral.txt'
 save_path = r'.'
 
-device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+# device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+device = torch.device('cpu')
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--epoch', type=str, default=10000, help='Max training epochs')

@@ -3,10 +3,8 @@ import math
 import numpy as np
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
-from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
-from torch.nn.modules import activation
 
 
 def parseTxt(txt_file):
