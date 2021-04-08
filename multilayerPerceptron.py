@@ -47,7 +47,6 @@ class Model(nn.Module):
             
 
 def train(n_epochs, model, loss_fn, optimizer, train_loader, val_loader, device):
-    model.to(device=device)
     for epoch in range(1, n_epochs + 1):
         loss_train_list = []
         for x_train, y_train in train_loader:
@@ -116,8 +115,7 @@ def plotPrediction(model, txt_file):
 txt_file = r'./two-spiral.txt'
 save_path = r'.'
 
-# device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-device = torch.device('cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--epoch', type=str, default=10000, help='Max training epochs')
@@ -146,7 +144,7 @@ val_dataset = data.TensorDataset(val_data, val_label)
 train_loader = data.DataLoader(train_dataset, batch_size=97, shuffle=True)
 val_loader = data.DataLoader(val_dataset, batch_size=20, shuffle=True)
 
-model = Model(args.hid)
+model = Model(args.hid).to(device=device)
 loss_fn = nn.BCELoss()
 optimizer = optim.Adam(model.parameters(), eps=0.000001, lr=args.lr, betas=(0.9, 0.999), weight_decay=0.0001)
 
